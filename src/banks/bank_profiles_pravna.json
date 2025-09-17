@@ -1,0 +1,551 @@
+[
+{
+  "name": "Addiko Bank AD",
+  "non-resident": {
+    "transferOut": {
+      "SHA": [
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 20,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0045,
+          "minFee": 35,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        }
+      ],
+      "OUR": [
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 20,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 30,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 30,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0045,
+          "minFee": 35,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        }
+      ],
+      "BEN": {
+        "notice": "Indikativno 20-50 eura troškova koje snosi primalac uplate. Ovo nije garancija. Preporučujemo opcije SHA ili OUR kako bi bili upoznati sa tačnim troškovima."
+      },
+      "special": { "T+0": 0 }
+    }
+  },
+  "resident": {
+    "transferOut": {
+      "SHA": [
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 20,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0045,
+          "minFee": 35,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        }
+      ],
+      "OUR": [
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 20,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 30,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 30,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0045,
+          "minFee": 35,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        }
+      ],
+      "BEN": {
+        "notice": "Indikativno 20-50 eura troškova koje snosi primalac uplate. Ovo nije garancija. Preporučujemo opcije SHA ili OUR kako bi bili upoznati sa tačnim troškovima."
+      },
+      "special": { "T+0": 0 }
+    }
+  }
+},
+{
+  "name": "Adriatic Bank AD",
+  "non-resident": {
+    "transferOut": {
+      "SHA": [
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 30,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": 20000,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 30,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 20000.01,
+          "maxAmount": 100000,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 100000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        }
+      ],
+      "OUR": [
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 10,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 30,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 20,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": 10000,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 30,
+          "maxFee": 0,
+          "additionalFee": 20,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 10000.01,
+          "maxAmount": 20000,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 30,
+          "maxFee": 0,
+          "additionalFee": 25,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 20000.01,
+          "maxAmount": 50000,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 25,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 50000.01,
+          "maxAmount": 100000,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 40,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 100000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 40,
+          "additionalEndUserFee": 0
+        }
+      ],
+      "BEN": {
+        "notice": "Indikativno 20-50 eura troškova koje snosi primalac uplate. Ovo nije garancija. Preporučujemo opcije SHA ili OUR kako bi bili upoznati sa tačnim troškovima."
+      }
+    }
+  },
+  "resident": {
+    "transferOut": {
+      "SHA": [
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 10,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": 20000,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 20,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 20000.01,
+          "maxAmount": 100000,
+          "feeType": "percentage",
+          "feeValue": 0.003,
+          "minFee": 70,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 100000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0025,
+          "minFee": 300,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        }
+      ],
+      "OUR": [
+        {
+          "minAmount": 0,
+          "maxAmount": 2500,
+          "feeType": "fixed",
+          "feeValue": 10,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 10,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 2500.01,
+          "maxAmount": 5000,
+          "feeType": "fixed",
+          "feeValue": 20,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 20,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 5000.01,
+          "maxAmount": 10000,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 20,
+          "maxFee": 0,
+          "additionalFee": 20,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 10000.01,
+          "maxAmount": 20000,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 20,
+          "maxFee": 0,
+          "additionalFee": 25,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 20000.01,
+          "maxAmount": 50000,
+          "feeType": "percentage",
+          "feeValue": 0.003,
+          "minFee": 70,
+          "maxFee": 0,
+          "additionalFee": 25,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 50000.01,
+          "maxAmount": 100000,
+          "feeType": "percentage",
+          "feeValue": 0.003,
+          "minFee": 70,
+          "maxFee": 0,
+          "additionalFee": 40,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 100000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0025,
+          "minFee": 300,
+          "maxFee": 0,
+          "additionalFee": 40,
+          "additionalEndUserFee": 0
+        }
+      ],
+      "BEN": {
+        "notice": "Indikativno 20-50 eura troškova koje snosi primalac uplate. Ovo nije garancija. Preporučujemo opcije SHA ili OUR kako bi bili upoznati sa tačnim troškovima."
+      }
+    }
+  }
+}
+
+]
