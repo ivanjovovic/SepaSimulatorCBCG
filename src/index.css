@@ -192,4 +192,19 @@ body{
   border-color: #fcd34d;
 }
 
+/* ===== Mobilno smanji cifru + državu u redu "Šalješ" (SEPA i SWIFT) ===== */
+@media (max-width: 480px) {
+  .kv .val.big {
+    font-size: 1rem;      /* bilo npr. 1.25–1.5rem; sad kompaktnije na mobilnom */
+    line-height: 1.2;
+    font-weight: 700;     /* ostavi naglašeno; po želji spusti na 600 */
+    letter-spacing: .1px; /* mrvicu zbijenije */
+  }
+}
 
+/* (opciono) još zbijenije na baš uskim ekranima */
+@media (max-width: 360px) {
+  .kv .val.big {
+    font-size: 0.95rem;
+  }
+}
