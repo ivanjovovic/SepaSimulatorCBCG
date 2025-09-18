@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState, useRef } from 'react'
 import { getAllBanks, type BankProfile } from './bankLoader'
 import { calcSwiftFeeDynamic, type SwiftBankProfile, type SwiftFeeResult } from './swiftFeeCalculator'
 
@@ -14,13 +14,19 @@ function formatEUR(n: number) {
 }
 function toAccCountry(country: string) {
   const s = (country || '').trim()
-  if (s.length < 2) return s
-  return s.slice(0, -1) + 'u'
+  return s
 }
 
 export default function SepaSwiftSimulator() {
+
+  const costRef = useRef<HTMLDivElement | null>(null)
+
+  const scrollToResults = () => {
+    costRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   const [country, setCountry] = useState('Njemačka')
-  const [amountStr, setAmountStr] = useState('250')
+  const [amountStr, setAmountStr] = useState('0')
   const amount = useMemo(() => {
     if (amountStr.trim()==='') return 0
     const normalized = amountStr.replace(',', '.').replace(/^0+(?=\d)/, '')
@@ -29,7 +35,7 @@ export default function SepaSwiftSimulator() {
   }, [amountStr])
 
   const [channel, setChannel] = useState<'e-bankarstvo'|'šalter'>('e-bankarstvo')
-  const [firstOfDay, setFirstOfDay] = useState(true)
+  const [firstOfDay, setFirstOfDay] = useState(false)
   const [clientType, setClientType] = useState<'fizicka'|'pravna'>('fizicka')
   const [isResident, setIsResident] = useState(true)
 
@@ -38,6 +44,8 @@ export default function SepaSwiftSimulator() {
 
   const [swiftSpecial, setSwiftSpecial] = useState('Standard')
   const [showInfo, setShowInfo] = useState(false)
+
+  
 
   useEffect(() => {
     const banks = getAllBanks(clientType)
@@ -108,7 +116,7 @@ export default function SepaSwiftSimulator() {
   }, [bankProfiles, bankName, isResident])
 
   return (
-    <div className="bg-blob min-h-screen w-full px-6 py-10 relative z-10">
+    <div className="min-h-screen w-full px-6 py-10 relative z-10">
       <div className="max-w-7xl mx-auto">
         <Header />
 
@@ -166,29 +174,44 @@ export default function SepaSwiftSimulator() {
                 </Field>
 
                 <Field label="Prvi dnevni transfer do 200€?">
-                  <button className="toggle" data-on={firstOfDay} onClick={()=>setFirstOfDay(v=>!v)}>
+                  <button
+                    className={`toggle ${amount > 200 ? 'toggle--disabled' : ''}`}
+                    data-on={amount <= 200 && firstOfDay}
+                    onClick={() => {
+                      if (amount <= 200) {
+                        setFirstOfDay(v => !v)
+                      }
+                    }}
+                    disabled={amount > 200}
+                    title={amount > 200 ? 'Dostupno samo za iznose do 200€' : ''}
+                  >
                     <span className="toggle-dot" />
                   </button>
                 </Field>
               </div>
 
-              <Field label={
-                <span className="inline-flex items-center gap-2">
-                  Vaša banka
-                  <button
-                    type="button" onClick={()=>setShowInfo(true)}
-                    className="text-xs px-2 py-1 rounded-md border border-[color:var(--border)] hover:bg-[#f0f6ff] transition"
-                    title="Prikaži informativne OUR/BEN proračune"
-                  >i</button>
-                </span>
-              }>
+              <Field label="Vaša banka">
                 <div className="select-wrap">
                   <select value={bankName} onChange={(e)=>setBankName(e.target.value)} className="select">
-                    {bankProfiles.map(b=>(<option key={b.name} value={b.name}>{b.name}</option>))}
+                    {bankProfiles.map(b => (
+                      <option key={b.name} value={b.name}>{b.name}</option>
+                    ))}
                   </select>
                   <span className="chev">▾</span>
                 </div>
               </Field>
+
+              {/* Dugme stavljaš posebno ispod, sa razmakom */}
+              <div className="mt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowInfo(true)}
+                  className="info-btn"
+                  title="Prikaži informativne OUR/BEN proračune"
+                >
+                  Prikaži informativne OUR/BEN proračune
+                </button>
+              </div>
 
               {shaSettlementOptions.length>0 && (
                 <Field label="Poravnanje (SHA)">
@@ -200,14 +223,22 @@ export default function SepaSwiftSimulator() {
                 </Field>
               )}
 
-              <div className="rounded-md border border-amber-300/50 bg-amber-50 text-amber-800 p-3 text-sm">
+              {/* <div className="rounded-md border border-amber-300/50 bg-amber-50 text-amber-800 p-3 text-sm">
                 Za precizne informacije obratite se banci.
-              </div>
+              </div> */}
+              <div className="block lg:hidden mt-4 text-center">
+                <button
+                  onClick={scrollToResults}
+                  className="bg-[color:var(--primary)] text-white font-semibold py-2 px-6 rounded-md text-base hover:bg-[color:var(--primary-2)] transition"
+                >
+                  Izračunaj
+                </button>
+          </div>
             </div>
           </div>
 
           {/* Desni panel — VEĆI I ISTAKNUT */}
-          <div className="card card--halo p-6 lg:p-8">
+          <div className="card card--halo p-6 lg:p-8" ref={costRef}>
             <CostOverview
               amount={amount}
               countryAcc={countryAcc}
@@ -216,18 +247,15 @@ export default function SepaSwiftSimulator() {
             />
           </div>
         </div>
-
-        <div className="mt-6 text-xs subtle">
-          * Ovo je edukativni prikaz. Za precizne informacije obratite se banci.
-        </div>
+        <Footer/>
       </div>
 
       {showInfo && (
         <InfoModal onClose={()=>setShowInfo(false)}>
           <div className="space-y-2">
-            <h3 className="text-lg font-semibold" style={{color:'var(--primary)'}}>Informativne opcije troškova</h3>
+            <h3 className="text-lg font-semibold" style={{color:'var(--primary)'}}>Informativne opcije troškova SWIFT</h3>
             <p className="text-sm subtle">
-              SEPA koristi <b>SHA</b>. Ispod su informativni proračuni (ako postoje pravila u banci):
+              SEPA koristi <b>SHA</b>. SWIFT pored SHA opcije ima opcije OUR i BEN. Ispod su informativni proračuni (ako postoje pravila u banci):
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
               <InfoCard title="OUR (informativno)" result={swiftOurResult} />
@@ -247,12 +275,16 @@ function Header(){
   return (
     <div className="flex items-start justify-between gap-4">
       <div>
-        <h1 className="text-4xl h1-grad">Pregled troškova plaćanja</h1>
-        <div className="mt-3 tabs">
-          <span className="tab active">SWIFT (SHA)</span>
-          <span className="tab">SEPA</span>
-        </div>
-        <p className="mt-2 subtle">Uporedi indikativne troškove.</p>
+        <h1 className="text-4xl h1-grad">SEPA vs SWIFT simulator</h1>
+          <div className="mt-4 mb-6 space-y-2 max-w-2xl text-[15px]">
+            <p className="text-gray-700">
+              Saznajte koliko košta slanje novca u <strong>EUR zoni</strong> koristeći SEPA ili SWIFT.
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              <strong>SEPA</strong> je standardizovan sistem za plaćanja unutar EU i EEA, sa predvidivim troškovima.  
+              <strong> SWIFT</strong> se može koristiti za međunarodne transfere van tog prostora.
+            </p>
+</div>
       </div>
     </div>
   )
@@ -283,30 +315,15 @@ function CostOverview({
 
       <div className="flex flex-col gap-6 grow">
         {/* SWIFT (SHA) */}
-        <div className="card p-6">
-          <div className="mb-3 flex items-center justify-between">
-            <div className="text-sm font-semibold subtle">SWIFT (SHA)</div>
-            <span className="badge-soft">SHA</span>
-          </div>
-
-          <div className="kv">
-            <div className="lab">Šalješ</div>
-            <div className="val big">{`${formatEUR(amount)} → ${countryAcc}`}</div>
-
-            <div className="lab">Naknada (pošiljalac)</div>
-            <div className="val">{formatEUR(swift.senderFee)}</div>
-          </div>
-
-          <div className="total-line">
-            <div className="lab">Pošiljalac plaća ukupno</div>
-            <div className="total-amount">{formatEUR(swift.senderPaysTotal)}</div>
-          </div>
-        </div>
 
         {/* SEPA */}
         <div className="card p-6">
           <div className="mb-3 flex items-center justify-between">
-            <div className="text-sm font-semibold subtle">SEPA</div>
+            <div className="mb-3">
+              <div className="text-lg font-bold text-[color:var(--primary)] tracking-wide">
+                SEPA
+              </div>
+            </div>
             <span className="badge-soft">SCT</span>
           </div>
 
@@ -315,17 +332,41 @@ function CostOverview({
             <div className="val big">{`${formatEUR(amount)} → ${countryAcc}`}</div>
 
             <div className="lab">SEPA naknada (indikativno)</div>
-            <div className="val">{formatEUR(sepaFee)}</div>
+            <div className="val big">{formatEUR(sepaFee)}</div>
           </div>
 
           <div className="total-line">
             <div className="lab">Pošiljalac plaća ukupno</div>
-            <div className="total-amount">{formatEUR(amount + sepaFee)}</div>
+            <div className="total-amount-sepa">{formatEUR(amount + sepaFee)}</div>
           </div>
 
           <p className="text-[11px] subtle mt-2">
             * Tipične naknade: e-bankarstvo do {formatEUR(SEPA_STANDARD_FEE_CAP)} ≈ 1.99€; šalter veće.
           </p>
+        </div>
+
+        <div className="card p-6">
+          <div className="mb-3 flex items-center justify-between">
+            <div className="mb-3">
+              <div className="text-lg font-bold text-[color:var(--primary)] tracking-wide">
+                SWIFT
+              </div>
+            </div>
+            <span className="badge-soft">SHA</span>
+          </div>
+
+          <div className="kv">
+            <div className="lab">Šalješ</div>
+            <div className="val big">{`${formatEUR(amount)} → ${countryAcc}`}</div>
+
+            <div className="lab">Naknada (pošiljalac)</div>
+            <div className="val big">{formatEUR(swift.senderFee)}</div>
+          </div>
+
+          <div className="total-line">
+            <div className="lab">Pošiljalac plaća ukupno</div>
+            <div className="total-amount">{formatEUR(swift.senderPaysTotal)}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -369,8 +410,19 @@ function InfoCard({ title, result }:{ title:string; result:SwiftFeeResult|null }
           <StatRow label="Pošiljalac plaća ukupno" value={formatEUR(result.senderPaysTotal)} />
         </>
       ) : (
-        <div className="text-sm subtle">Nema definisanih pravila.</div>
+        <div className="text-sm subtle">Indikativno: trošak od 10€ ili više koji snosi primalac uplate.</div>
       )}
     </div>
+  )
+}
+
+function Footer() {
+  return (
+    <footer className="mt-12 border-t border-[color:var(--border)] bg-[var(--bg)] text-sm text-gray-700 px-4 py-6 text-center">
+      <p className="max-w-3xl mx-auto leading-relaxed">
+        Ovaj simulator je isključivo informativnog karaktera i u druge svrhe se ne može koristiti. 
+        Za precizne informacije o troškovima obratite se banci.
+      </p>
+    </footer>
   )
 }
