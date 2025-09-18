@@ -11,6 +11,7 @@ export type SwiftFeeRule = {
   settlement?: 'T+0' | 'T+1' | 'T+2' | string | null
 }
 
+
 export type SwiftFeeResult = {
   senderFee: number
   senderPaysTotal: number

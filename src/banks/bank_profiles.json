@@ -1214,13 +1214,13 @@
         }
     },
     "resident":{
-      "transferOut": {
+           "transferOut": {
           "SHA": [
             {
               "minAmount": 0,
               "maxAmount": 1000,
               "feeType": "fixed",
-              "feeValue": 10,
+              "feeValue": 15,
               "minFee": 0,
               "maxFee": 0,
               "additionalFee":0,
@@ -1238,20 +1238,30 @@
             },
             {
               "minAmount": 5000,
-              "maxAmount": 50000,
+              "maxAmount": 20000,
               "feeType": "percentage",
-              "feeValue": 0.004,
-              "minFee": 0,
+              "feeValue": 0.0035,
+              "minFee": 20,
               "maxFee": 0,
               "additionalFee":0,
               "additionalEndUserFee": 0
             },
             {
-              "minAmount": 50000,
+              "minAmount": 20000,
+              "maxAmount": 100000,
+              "feeType": "percentage",
+              "feeValue": 0.0025,
+              "minFee": 70,
+              "maxFee": 0,
+              "additionalFee":0,
+              "additionalEndUserFee": 0
+            },
+            {
+              "minAmount": 100000,
               "maxAmount": null,
               "feeType": "percentage",
-              "feeValue": 0.0035,
-              "minFee": 200,
+              "feeValue": 0.002,
+              "minFee": 250,
               "maxFee": 0,
               "additionalFee":0,
               "additionalEndUserFee": 0
@@ -1260,6 +1270,46 @@
           "OUR": [
             {
               "minAmount": 0,
+              "maxAmount": 1000,
+              "feeType": "percentage",
+              "feeValue": 0.003,
+              "minFee": 10,
+              "maxFee": 0,
+              "additionalFee": 0,
+              "additionalEndUserFee": 0
+            },
+            {
+              "minAmount": 1000,
+              "maxAmount": 5000,
+              "feeType": "percentage",
+              "feeValue": 0.003,
+              "minFee": 10,
+              "maxFee": 0,
+              "additionalFee": 0,
+              "additionalEndUserFee": 0
+            },
+            {
+              "minAmount": 5000,
+              "maxAmount": 20000,
+              "feeType": "percentage",
+              "feeValue": 0.003,
+              "minFee": 10,
+              "maxFee": 0,
+              "additionalFee": 0,
+              "additionalEndUserFee": 0
+            },
+            {
+              "minAmount": 20000,
+              "maxAmount": 100000,
+              "feeType": "percentage",
+              "feeValue": 0.003,
+              "minFee": 10,
+              "maxFee": 0,
+              "additionalFee": 0,
+              "additionalEndUserFee": 0
+            },
+            {
+              "minAmount": 100000,
               "maxAmount": null,
               "feeType": "percentage",
               "feeValue": 0.003,

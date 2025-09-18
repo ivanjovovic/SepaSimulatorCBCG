@@ -546,6 +546,269 @@
       }
     }
   }
+},
+{
+  "name": "Crnogorska komercijalna banka AD",
+  "non-resident": {
+    "transferOut": {
+      "SHA": [
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 15,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 30,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0,
+          "settlement": "T+1"
+        },
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 30,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        }
+      ],
+      "OUR": [
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 30,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 45,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+1"
+        },
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 45,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        }
+      ],
+      "BEN": {
+        "notice": "Indikativno 20-50 eura troškova koje snosi primalac uplate. Ovo nije garancija. Preporučujemo opcije SHA ili OUR kako bi bili upoznati sa tačnim troškovima."
+      },
+      "special": { "T+2": 0, "T+1": 0, "T+0": 0 }
+    }
+  },
+  "resident": {
+    "transferOut": {
+      "SHA": [
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 15,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 30,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0,
+          "settlement": "T+1"
+        },
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 30,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        }
+      ],
+      "OUR": [
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.0035,
+          "minFee": 30,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 45,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+1"
+        },
+        {
+          "minAmount": 0,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 45,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0,
+          "settlement": "T+0"
+        }
+      ],
+      "BEN": {
+        "notice": "Indikativno 20-50 eura troškova koje snosi primalac uplate. Ovo nije garancija. Preporučujemo opcije SHA ili OUR kako bi bili upoznati sa tačnim troškovima."
+      },
+      "special": { "T+2": 0, "T+1": 0, "T+0": 0 }
+    }
+  }
+},
+{
+  "name": "Erste bank AD",
+  "resident": {
+    "transferOut": {
+      "SHA": [
+        {
+          "minAmount": 0,
+          "maxAmount": 3000,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 3000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 15,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        }
+      ],
+      "OUR": [
+        {
+          "minAmount": 0,
+          "maxAmount": 3000,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 3000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 15,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        }
+      ],
+      "BEN": {
+        "notice": "Troškove snosi primalac, u praksi obično 20-50 eura, ali može varirati. Preporuka je SHA ili OUR radi transparentnosti."
+      }
+    }
+  },
+  "non-resident": {
+    "transferOut": {
+      "SHA": [
+        {
+          "minAmount": 0,
+          "maxAmount": 3000,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 3000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 15,
+          "maxFee": 0,
+          "additionalFee": 0,
+          "additionalEndUserFee": 0
+        }
+      ],
+      "OUR": [
+        {
+          "minAmount": 0,
+          "maxAmount": 3000,
+          "feeType": "fixed",
+          "feeValue": 15,
+          "minFee": 0,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        },
+        {
+          "minAmount": 3000.01,
+          "maxAmount": null,
+          "feeType": "percentage",
+          "feeValue": 0.005,
+          "minFee": 15,
+          "maxFee": 0,
+          "additionalFee": 15,
+          "additionalEndUserFee": 0
+        }
+      ],
+      "BEN": {
+        "notice": "Troškove snosi primalac, u praksi obično 20-50 eura, ali može varirati. Preporuka je SHA ili OUR radi transparentnosti."
+      }
+    }
+  }
 }
+
+
+
 
 ]
